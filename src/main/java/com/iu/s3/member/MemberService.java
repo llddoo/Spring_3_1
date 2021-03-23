@@ -16,7 +16,7 @@ public class MemberService {
 	
 	public MemberDTO memberLogin(MemberDTO memberDTO) throws Exception {
 		
-		memberDTO = memberDAO.Login(memberDTO);
+		memberDTO = memberDAO.memberLogin(memberDTO);
 		
 		return memberDTO;
 		

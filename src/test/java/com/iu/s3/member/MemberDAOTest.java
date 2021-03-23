@@ -14,11 +14,15 @@ public class MemberDAOTest extends MyAbstractTest {
 	private MemberDAO memberDAO;
 	
 	@Test
-	public void memberJoin() throws Exception {
+	public void memberJoinTest() throws Exception {
 		
 		MemberDTO memberDTO = new MemberDTO();
-		
-		
+		memberDTO.setId("Goal");
+		memberDTO.setPw("2222");
+		memberDTO.setName("gggg");
+		memberDTO.setEmail("gggg.naver.com");
+		memberDTO.setPhone("01033235511");
+		int result = memberDAO.memberJoin(memberDTO);
 		
 		assertEquals(1, result);
 		
