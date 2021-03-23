@@ -14,7 +14,7 @@ public class BankBookDAOTest extends MyAbstractTest {
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	@Test
+	//@Test
 	public void getListTest()throws Exception{
 		List<BankBookDTO> ar = bankBookDAO.getList();
 		assertNotEquals(0, ar.size());
@@ -26,7 +26,7 @@ public class BankBookDAOTest extends MyAbstractTest {
 		assertNotNull(bankBookDTO);
 	}
 	
-	//@Test
+	@Test
 	public void setWriteTest() throws Exception {
 		BankBookDTO bankBookDTO = new BankBookDTO();
 		bankBookDTO.setBookName("Test");
