@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class ConnectionTest extends MyAbstractTest {
 	
+	//member test
 	@Autowired
 	private DataSource dataSource;
 	
