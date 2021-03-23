@@ -9,8 +9,9 @@
 		insert into member values(#{id},#{pw},#{name},#{email},#{phone})
 	</insert>
 
-
-
+	<select id="memberLogin" parameterType="com.iu.s3.member.MemberDTO">
+		SELECT * FROM member WHERE id=#{id} and pw=#{pw}
+	</select>
 
 
 

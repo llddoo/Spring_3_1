@@ -13,7 +13,7 @@ public class MemberDAOTest extends MyAbstractTest {
 	@Autowired
 	private MemberDAO memberDAO;
 	
-	@Test
+	//@Test
 	public void memberJoinTest() throws Exception {
 		
 		MemberDTO memberDTO = new MemberDTO();
@@ -24,8 +24,17 @@ public class MemberDAOTest extends MyAbstractTest {
 		memberDTO.setPhone("01033235511");
 		int result = memberDAO.memberJoin(memberDTO);
 		
-		assertEquals(1, result);
-		
+		assertEquals(1, result);	
 	}
 	
+	public void memberLoginTest() throws Exception {
+	
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.getId("Goal");
+		memberDTO.getPw()
+	
+	
+	
+
+	}
 }
