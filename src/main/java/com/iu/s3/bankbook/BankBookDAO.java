@@ -17,6 +17,12 @@ public class BankBookDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.iu.s3.bankbook.BankBookDAO";
+	
+	
+	public int setUpdate(BankBookDTO bankBookDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+".setUpdate", bankBookDTO);
+	}
+	
 
 	public int setWrite(BankBookDTO bankBookDTO)throws Exception{
 		int result = sqlSession.insert(NAMESPACE+".setWrite", bankBookDTO);
