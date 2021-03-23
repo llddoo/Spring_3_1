@@ -6,7 +6,7 @@
 <mapper namespace="com.iu.s3.member.MemberDAO">
 
 	<insert id="memberJoin" parameterType="com.iu.s3.member.MemberDTO">
-		
+		insert into member values(#{id},#{pw},#{name},#{email},#{phone})
 	</insert>
 
 
