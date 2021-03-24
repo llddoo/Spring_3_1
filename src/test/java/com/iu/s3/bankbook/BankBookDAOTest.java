@@ -17,11 +17,11 @@ public class BankBookDAOTest extends MyAbstractTest {
 	@Test
 	public void setUpdateTest()throws Exception{
 		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookNumber(8);
+		bankBookDTO.setBookNumber(7);
 		
 		bankBookDTO = bankBookDAO.getSelect(bankBookDTO);
 		
-		bankBookDTO.setBookName("New Poduct");
+		bankBookDTO.setBookName("정기예금");
 		
 		int result = bankBookDAO.setUpdate(bankBookDTO);
 		assertEquals(1, result);
