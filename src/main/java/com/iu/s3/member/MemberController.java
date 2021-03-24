@@ -1,62 +1,41 @@
 package com.iu.s3.member;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/member/**")
 public class MemberController {
-	
+
 	@Autowired
 	private MemberService memberService;
-	
-	
-	// memberJoin  //   /member/memberJoin GET 한마디로 입력하러 가는 홈페이지 역할이야
-	@RequestMapping(value = "/member/memberJoin")
-	public String memberJoin() {
-		return "member/memberJoin";
+
+	@RequestMapping("memberLogin")
+	public void memberLogin() throws Exception {
+
 	}
-	
-	// memberJoin2 //	/member/memberJoin POST 그리고 얘는 DB에 조회하고 불러오기위한 역할
-	@RequestMapping(value = "/member/memberJoin", method = RequestMethod.POST)
-	public void memberJoin(MemberDTO memberDTO)throws Exception{
+	@RequestMapping(value="memberLogin", method=RequestMethod.POST)
+	public String memberLogin(MemberDTO memberDTO, HttpSession session) throws Exception {
+		memberDTO = memberService.memberLogin(memberDTO); //클라이언트가 치고들어올 새로운  URL주소의 방법은 리다이렉트
+		System.out.println("로그인 실패");
+		session.setAttribute("member", memberDTO);
 		
+		return "redirect:../";
+	}
+	@RequestMapping("memberJoin")
+	public void memberJoin() throws Exception {
+	}
+
+	@RequestMapping(value="memberJoin", method=RequestMethod.POST)
+	public String memberJoin(MemberDTO memberDTO) throws Exception {
 		int result = memberService.memberJoin(memberDTO);
-		System.out.println("test");
-		System.out.println(result);
-	}
-	
-	
-	
-	
-	//memberLogin print   //  /member/memberLogin
-	@RequestMapping(value = "/member/memberLogin")
-	public String memberLogin() {
-		//String name = request.getParameter("name");
-		//int age = Integer.parseInt(request.getParameter("age"));
-		//System.out.println(name);
-		//System.out.println(age);
-		System.out.println("login-------");
-		// /WEB-INF/views/member/memberLogin.jsp
-		return "member/memberLogin";
-	}
-	
-	//memberLogin2 print
-	@RequestMapping(value = "/member/memberLogin", method = RequestMethod.POST)
-	public ModelAndView memberLogin(MemberDTO memberDTO, ModelAndView modelAndView) throws Exception {
-	
-		memberDTO = memberService.memberLogin(memberDTO);
-		
-		modelAndView.addObject("dto", memberDTO);
-		modelAndView.setViewName("member/memberPage");
-		return modelAndView;
-		
+		return "redirect:../";
+
 	}
 
 }
