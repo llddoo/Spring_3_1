@@ -1,5 +1,18 @@
 package com.iu.s3.account;
 
-public class AccountController {
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
+@RequestMapping("/account/**")
+public class AccountController {
+	
+	@RequestMapping("accountList")
+	public void getList()throws Exception{
+		
+	}
+	@RequestMapping("accountList")
+	public void setInsert() throws Exception{
+		
+	}
 }
