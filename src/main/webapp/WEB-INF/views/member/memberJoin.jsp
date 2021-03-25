@@ -11,7 +11,7 @@
 	
 	<form action="./memberJoin" method="post">
 		ID <input type="text" name="id"><br>
-		PW <input type="text" name="pw"><br>
+		PW <input type="password" name="pw"><br>
 		NAME <input type="text" name="name"><br>
 		EMAIL <input type="text" name="email"><br>
 		PHONE <input type="text" name="phone"><br>

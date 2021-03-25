@@ -21,7 +21,7 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="com.iu.s3" />
+	<context:component-scan base-package="com.iu.s3" /> <!-- s3패키지를 쫙 읽어옴 -->
 	
 	
 	

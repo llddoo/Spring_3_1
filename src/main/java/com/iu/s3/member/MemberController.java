@@ -14,6 +14,45 @@ public class MemberController {
 
 	@Autowired
 	private MemberService memberService;
+	
+	@RequestMapping("memberUpdate")
+	public void memberUpdate() throws Exception {
+		
+	}
+	
+	@RequestMapping(value = "memberUpdate", method = RequestMethod.POST)
+	public String memberUpdate(MemberDTO memberDTO, HttpSession session) throws Exception {
+		int result = memberService.memberUpdate(memberDTO);
+		
+		if(result>0) {
+			session.setAttribute("member", memberDTO);
+		}
+		
+		 return "redirect:../";
+	}
+	
+	@RequestMapping("memberDelete")
+	public String memberDelete(HttpSession session) throws Exception {
+		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
+		int result = memberService.memberDelete(memberDTO);
+		
+		session.invalidate();
+		
+		return "redirect:../";
+	}
+	
+	@RequestMapping("memberPage")
+	public void memberPage() throws Exception {
+		
+	}
+
+	@RequestMapping("memberLogout")
+	public String memberLogout(HttpSession session) throws Exception {
+		session.invalidate(); //세션 유지시간을 0으로 만들겠다
+		return "redirect:../";
+	}
+	
+	
 
 	@RequestMapping("memberLogin")
 	public void memberLogin() throws Exception {
