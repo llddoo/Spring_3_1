@@ -66,7 +66,7 @@
 	글 작성 - 관리자만 접근 가능
 	
 	
-	Backe-end
+	Back-end
 		noticeMapper
 		 - com.iu.s3.notice
 		NoticeDTO
