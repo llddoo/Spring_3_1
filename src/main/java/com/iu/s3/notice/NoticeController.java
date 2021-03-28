@@ -19,4 +19,9 @@ public class NoticeController {
 		List<NoticeDTO> ar = noticeService.getList();
 		model.addAttribute("list", ar);
 	}
+	
+	@RequestMapping()
+	public void getSelect() throws Exception {
+		
+	}
 }
