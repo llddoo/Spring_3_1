@@ -4,19 +4,14 @@ import java.sql.Date;
 
 public class NoticeDTO {
 	
-	private Number num;
+	private long num;
 	private String title;
 	private String writer;
 	private String contents;
-	private Number hit;
+	private long hit;
 	private Date regdate;
 	
-	public Number getNum() {
-		return num;
-	}
-	public void setNum(Number num) {
-		this.num = num;
-	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -35,10 +30,17 @@ public class NoticeDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-	public Number getHit() {
+
+	public long getNum() {
+		return num;
+	}
+	public void setNum(long num) {
+		this.num = num;
+	}
+	public long getHit() {
 		return hit;
 	}
-	public void setHit(Number hit) {
+	public void setHit(long hit) {
 		this.hit = hit;
 	}
 	public Date getRegdate() {
