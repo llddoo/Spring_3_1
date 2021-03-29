@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.iu.s3.util.Pager;
+
 @Service
 public class BankBookService {
 	
@@ -19,8 +21,20 @@ public class BankBookService {
 		return bankBookDAO.setDelete(bankBookDTO);
 	}
 
-	public List<BankBookDTO> getList() throws Exception {
-		return bankBookDAO.getList();
+	public List<BankBookDTO> getList(Pager pager) throws Exception {
+		
+		int perPage = 10;
+		int perblock = 5;
+		
+		long startRow = (pager.getCurPage()-1)*(perPage+1);
+		long lastRow = pager.getCurPage()*perPage;
+		
+		pager.setStartRow(startRow);
+		pager.setLastRow(lastRow);
+		
+		
+		
+		return bankBookDAO.getList(pager);
 	}
 	
 	public BankBookDTO getSelect(BankBookDTO bankBookDTO) throws Exception {

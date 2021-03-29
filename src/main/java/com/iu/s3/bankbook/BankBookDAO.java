@@ -11,6 +11,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.s3.util.Pager;
+
 @Repository
 public class BankBookDAO {
 	
@@ -46,8 +48,8 @@ public class BankBookDAO {
 
 	//getList
 	//bankbook table의 모든 데이트 조회 후 리턴
-	public List<BankBookDTO> getList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList");
+	public List<BankBookDTO> getList(Pager pager)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 
 }

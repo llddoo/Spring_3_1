@@ -44,7 +44,8 @@
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
    
-   <c:forEach begin="${startNum}" end="${pager.lastNum}" var="i">
+   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+   
     <li class="page-item"><a class="page-link" href="./noticeList?curPage=${i}">${i}</a></li>
    </c:forEach>
    

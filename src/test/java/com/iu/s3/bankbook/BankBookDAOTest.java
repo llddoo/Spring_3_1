@@ -14,7 +14,7 @@ public class BankBookDAOTest extends MyAbstractTest {
 	@Autowired
 	private BankBookDAO bankBookDAO;
 	
-	@Test
+	//@Test
 	public void setUpdateTest()throws Exception{
 		BankBookDTO bankBookDTO = new BankBookDTO();
 		bankBookDTO.setBookNumber(7);
@@ -50,16 +50,23 @@ public class BankBookDAOTest extends MyAbstractTest {
 		assertNotNull(bankBookDTO);
 	}
 	
-	//@Test
+	@Test
 	public void setWriteTest() throws Exception {
-		BankBookDTO bankBookDTO = new BankBookDTO();
-		bankBookDTO.setBookName("Test");
-		bankBookDTO.setBookRate(0.12);
-		bankBookDTO.setBookSale("Y");
-		int result = bankBookDAO.setWrite(bankBookDTO);
 		
-		assertEquals(1, result);
+		for(int i=0;i<200;i++) {
+			BankBookDTO bankBookDTO = new BankBookDTO();
+			bankBookDTO.setBookName("BookName"+i);
+			bankBookDTO.setBookRate(0.12);
+			bankBookDTO.setBookSale("Y");
+			int result = bankBookDAO.setWrite(bankBookDTO);
+			if(i%10 ==0) {
+				Thread.sleep(500);
+			}
+		}
+		//assertEquals(1, result);
+		System.out.println("종료");
 	}
+	
 	
 	
 
