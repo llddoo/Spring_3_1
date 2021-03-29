@@ -1,26 +1,29 @@
 package com.iu.s3.notice;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.iu.s3.util.Pager;
+
 @Repository
 public class NoticeDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
+	
 	private final String NAMESPACE="com.iu.s3.notice.NoticeDAO.";
 	
-	public NoticeDTO getSelect(NoticeDTO noticeDTO) throws Exception {
-		System.out.println("NOTICE DAO 제데로 출력되닝?");
-		 noticeDTO = sqlSession.selectOne(NAMESPACE+"getSelect", noticeDTO);
-		 System.out.println(noticeDTO.getContents());
-		 return noticeDTO;		
+	public List<NoticeDTO> getList(Pager pager)throws Exception{
+		
+		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 	
-	public List<NoticeDTO> getList() throws Exception {
-		return sqlSession.selectList(NAMESPACE+"getList");
+	public int setInsert(NoticeDTO noticeDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setInsert", noticeDTO);
 	}
+
 }

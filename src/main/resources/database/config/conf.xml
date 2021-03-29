@@ -9,6 +9,7 @@
   			<typeAlias type="com.iu.s3.bankbook.BankBookDTO" alias="BankBookDTO"/>
   			<typeAlias type="com.iu.s3.account.AccountDTO" alias="AccountDTO"/>
   			<typeAlias type="com.iu.s3.notice.NoticeDTO" alias="NoticeDTO"/>
+  			<typeAlias type="com.iu.s3.util.Pager" alias="Pager"/>
   			<!-- 이 루트로 가는 주소를 저 주소로 간단하게 설정해서 가게해라 -->
   		</typeAliases>
   </configuration>

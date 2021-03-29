@@ -8,10 +8,15 @@ public class NoticeDTO {
 	private String title;
 	private String writer;
 	private String contents;
+	private Date regDate;
 	private long hit;
-	private Date regdate;
 	
-
+	public long getNum() {
+		return num;
+	}
+	public void setNum(long num) {
+		this.num = num;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -30,12 +35,11 @@ public class NoticeDTO {
 	public void setContents(String contents) {
 		this.contents = contents;
 	}
-
-	public long getNum() {
-		return num;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setNum(long num) {
-		this.num = num;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 	public long getHit() {
 		return hit;
@@ -43,10 +47,7 @@ public class NoticeDTO {
 	public void setHit(long hit) {
 		this.hit = hit;
 	}
-	public Date getRegdate() {
-		return regdate;
-	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
-	}
+	
+	
+
 }
