@@ -38,11 +38,11 @@ public class BankBookDAOTest extends MyAbstractTest {
 	
 	
 	
-	//@Test
-	public void getListTest()throws Exception{
-		List<BankBookDTO> ar = bankBookDAO.getList();
-		assertNotEquals(0, ar.size());
-	}
+//	//@Test
+//	public void getListTest()throws Exception{
+//		List<BankBookDTO> ar = bankBookDAO.getList();
+//		assertNotEquals(0, ar.size());
+//	}
 	
 	//@Test
 	public void getSelectTest()throws Exception{

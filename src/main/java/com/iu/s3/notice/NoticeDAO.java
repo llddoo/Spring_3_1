@@ -17,7 +17,8 @@ public class NoticeDAO {
 	
 	private final String NAMESPACE="com.iu.s3.notice.NoticeDAO.";
 	
-	public Long getTotalCount() throws Exception {
+	
+	public Long getTotalCount()throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getTotalCount");
 	}
 	
