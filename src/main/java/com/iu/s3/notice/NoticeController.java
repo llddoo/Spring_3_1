@@ -5,17 +5,29 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.iu.s3.util.Pager;
 
 @Controller
-@RequestMapping("/notice/**")
+@RequestMapping("/notice/**") // **표시는 root 밑에 리소시스 밑에 어떠한 파일명을 다 포함시키겟다
 public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
+	
+	@RequestMapping("noticeInsert")
+	public void setInsert() throws Exception{}
+	
+	
+	@RequestMapping(value="noticeInsert", method=RequestMethod.POST)
+	public String setInsert(NoticeDTO noticeDTO) throws Exception {
+		int result = noticeService.setInsert(noticeDTO);
+		return "redirect:./noticeList";
+	}
+	
 	
 	@RequestMapping("noticeList")
 	public ModelAndView getList(Pager pager)throws Exception{

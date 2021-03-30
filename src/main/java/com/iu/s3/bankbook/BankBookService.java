@@ -32,6 +32,12 @@ public class BankBookService {
 		pager.setStartRow(startRow);
 		pager.setLastRow(lastRow);
 		
+//		//1. totalCount
+//		long totalCount =  bankBookDAO.getTotalCount(pager);
+//		
+//		//2. totalPage
+//		long totalPage = totalCount / perPage;
+//		if(totalCount)
 		
 		
 		return bankBookDAO.getList(pager);

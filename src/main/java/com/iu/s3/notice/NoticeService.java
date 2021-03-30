@@ -13,6 +13,11 @@ public class NoticeService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
+	
+	public int setInsert(NoticeDTO noticeDTO) throws Exception {
+		return noticeDAO.setInsert(noticeDTO);
+	}
+	
 	public List<NoticeDTO> getList(Pager pager)throws Exception{
 		int perPage=10; // 한페이지당 보여줄 글의 갯수
 		int perBlock=5;	// 한 블럭당 보여줄 숫자의 갯수
@@ -27,8 +32,8 @@ public class NoticeService {
 		
 		
 		//---------------------------------------
-		//1. totalCount
-		long totalCount=noticeDAO.getTotalCount();
+		//1. totalCount 전체갯수
+		long totalCount=noticeDAO.getTotalCount(pager);
 		
 		//2. totalPage
 		long totalPage = totalCount / perPage;		//11
@@ -53,6 +58,21 @@ public class NoticeService {
 		long lastNum = curBlock*perBlock;
 		
 		
+		//6. curBlock이 마지막 block일때(totalBlock)
+		if(curBlock == totalBlock) {
+			lastNum = totalPage;
+		}
+		
+		//7. 이전, 다음 block 존재 여부
+		//이전
+		if(curBlock != 1) {
+			pager.setPre(true);
+		}
+		
+		//다음
+		if(curBlock != totalBlock) {
+			pager.setNext(true);
+		}
 		
 		pager.setStartNum(startNum);
 		pager.setLastNum(lastNum);

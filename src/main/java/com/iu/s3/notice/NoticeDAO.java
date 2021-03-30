@@ -18,11 +18,13 @@ public class NoticeDAO {
 	private final String NAMESPACE="com.iu.s3.notice.NoticeDAO.";
 	
 	
-	public Long getTotalCount()throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getTotalCount");
+	public Long getTotalCount(Pager pager)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
 	}
 	
 	public List<NoticeDTO> getList(Pager pager)throws Exception{
+			System.out.println(pager.getStartRow());
+			System.out.println(pager.getLastRow());
 		
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
