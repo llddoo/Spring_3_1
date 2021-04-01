@@ -13,7 +13,7 @@
  
  <div class="container">
  <h2>Notice form</h2>
-  <form action="./noticeInsert" method="post">
+  <form id="frm" action="./noticeInsert" method="post">
     <div class="form-group">
       <label for="writer">Writer:</label>
       <input type="text" readonly="readonly" value="${member.id}" class="form-control" id="writer" name="writer">
@@ -28,8 +28,8 @@
       <textarea class="form-control" rows="5" id="contents" name="contents"></textarea>
     </div>
     
-    <button type="submit" class="btn btn-primary" onclick="insertCheck()">Submit</button>
-    <input type="button" value="WRITE" class="btn btn-primary" onclick="insertCheck()">
+    
+    <input type="button" id="btn" value="WRITE" class="btn btn-primary">
   </form>
 </div>
 <script type="text/javascript" src="../resources/js/insertCheck.js"></script>
