@@ -7,7 +7,7 @@
 	
 	btn.addEventListener("click", function(){
 		if(all.checked){
-			
+			location.href="./memberJoin";//GET
 		}else {
 			alert("약관 동의는 필수입니다");	
 		}

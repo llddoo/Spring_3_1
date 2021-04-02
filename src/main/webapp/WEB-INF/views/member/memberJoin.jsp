@@ -63,7 +63,7 @@
 			</div>			
 			<!-- <button type="submit" class="btn btn-primary" id="check">Submit</button> -->
 			
-			<input type="button" id="btn" value="JOIN" class="btn btn-primary">
+			<input type="submit" id="btn" value="JOIN" class="btn btn-primary">
 			
 		</form>
 		
