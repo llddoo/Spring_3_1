@@ -1,4 +1,4 @@
-package com.iu.s3.notice;
+package com.iu.s3.board.notice;
 
 import java.util.List;
 import java.util.Random;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.iu.s3.board.BoardDTO;
 import com.iu.s3.util.Pager;
 
 @Controller
@@ -46,11 +47,12 @@ public class NoticeController {
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getCurPage());
 		
-		List<NoticeDTO> ar = noticeService.getList(pager);
+		List<BoardDTO> ar = noticeService.getList(pager);
 		
 		//List<NoticeDTO> ar = noticeService.getList(curPage);
 		mv.addObject("list", ar);
-		mv.setViewName("notice/noticeList");
+		mv.addObject("board", "notice");
+		mv.setViewName("board/boardList");
 		mv.addObject("pager", pager);
 		return mv;
 	}

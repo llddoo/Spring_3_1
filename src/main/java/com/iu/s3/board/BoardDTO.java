@@ -1,9 +1,8 @@
-package com.iu.s3.notice;
+package com.iu.s3.board;
 
 import java.sql.Date;
 
-public class NoticeDTO {
-	
+public class BoardDTO {
 	private long num;
 	private String title;
 	private String writer;
@@ -47,7 +46,5 @@ public class NoticeDTO {
 	public void setHit(long hit) {
 		this.hit = hit;
 	}
-	
-	
 
 }
