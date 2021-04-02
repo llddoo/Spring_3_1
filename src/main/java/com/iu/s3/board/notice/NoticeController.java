@@ -24,8 +24,8 @@ public class NoticeController {
 	public void setInsert()throws Exception{}
 	
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
-	public String setInsert(NoticeDTO noticeDTO, Model model)throws Exception{
-		int result = noticeService.setInsert(noticeDTO);
+	public String setInsert(BoardDTO boardDTO, Model model)throws Exception{
+		int result = noticeService.setInsert(boardDTO);
 		
 		String message="등록 실패";
 		

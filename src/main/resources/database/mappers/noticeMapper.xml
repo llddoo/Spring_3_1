@@ -45,7 +45,7 @@
 		where R between #{startRow} and #{lastRow}
 	</select>
 	
-	<insert id="setInsert" parameterType="NoticeDTO">
+	<insert id="setInsert" parameterType="BoardDTO">
 		insert into notice values(notice_seq.nextval,#{title}, #{writer}, #{contents}, sysdate, 0)
 	</insert>
 

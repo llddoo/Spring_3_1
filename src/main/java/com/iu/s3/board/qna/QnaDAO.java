@@ -11,7 +11,7 @@ import com.iu.s3.board.BoardDTO;
 import com.iu.s3.util.Pager;
 
 @Repository
-public class QnaDAO implements BoardDAO{
+public class QnaDAO implements BoardDAO {
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -22,6 +22,42 @@ public class QnaDAO implements BoardDAO{
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.selectList(NAMESPACE+"getList");
+	}
+
+	@Override
+	public long getTotalCount(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

@@ -30,5 +30,13 @@ public class QnaController {
 		return mv;
 		
 	}
+	@GetMapping("qnaInsert")
+	public ModelAndView setInsert()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("board/boardInsert");
+		mv.addObject("board", "qna");
+		
+		return mv;
+	}
 
 }

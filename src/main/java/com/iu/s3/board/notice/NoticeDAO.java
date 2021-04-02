@@ -18,28 +18,49 @@ public class NoticeDAO implements BoardDAO {
 	private SqlSession sqlSession;
 	
 	private final String NAMESPACE="com.iu.s3.board.notice.NoticeDAO.";
-	
-	
-	public Long getTotalCount(Pager pager)throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
-	}
-	
 
-	
-	
-	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.selectList(NAMESPACE+"getList", pager);
+		return null;
 	}
 
-
-
-
-
-	public int setInsert(NoticeDTO noticeDTO)throws Exception{
-		return sqlSession.insert(NAMESPACE+"setInsert", noticeDTO);
+	@Override
+	public long getTotalCount(Pager pager) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
+
+	@Override
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	
+	
 
 }

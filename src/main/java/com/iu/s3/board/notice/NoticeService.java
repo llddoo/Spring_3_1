@@ -15,10 +15,35 @@ public class NoticeService implements BoardService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	public int setInsert(NoticeDTO noticeDTO)throws Exception{
-		return noticeDAO.setInsert(noticeDTO);
+
+	@Override
+	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
+
+
+	@Override
+	public int setInsert(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int setUpdate(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public int setDelete(BoardDTO boardDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
 	public List<BoardDTO> getList(Pager pager)throws Exception{
 		int perPage=10; // 한페이지당 보여줄 글의 갯수
 		int perBlock=5;	// 한 블럭당 보여줄 숫자의 갯수
