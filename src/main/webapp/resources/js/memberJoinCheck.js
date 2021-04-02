@@ -6,7 +6,11 @@
 	const btn = document.getElementById("btn");
 	
 	btn.addEventListener("click", function(){
-		
+		if(all.checked){
+			
+		}else {
+			alert("약관 동의는 필수입니다");	
+		}
 	});
 	
 	all.addEventListener("click", function(){
