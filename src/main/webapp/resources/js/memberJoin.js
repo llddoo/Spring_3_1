@@ -78,8 +78,3 @@ id.addEventListener("blur", function(){
 	idResult.innerHTML = message;
 	idResult.setAttribute("class", c);
 });
-
-
-
-
-

@@ -2,8 +2,12 @@
  * 
  */
 	let check = document.getElementsByClassName("check");
-	
 	let all = document.getElementById("all");
+	const btn = document.getElementById("btn");
+	
+	btn.addEventListener("click", function(){
+		
+	});
 	
 	all.addEventListener("click", function(){
 		for(let ch of check){
