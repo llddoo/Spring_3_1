@@ -11,12 +11,12 @@ import com.iu.s3.board.BoardDTO;
 import com.iu.s3.util.Pager;
 
 @Repository
-public class QnaDAO implements BoardDAO {
+public class QnaDAO implements BoardDAO{
 	
 	@Autowired
 	private SqlSession sqlSession;
 	
-	private final String NAMESPACE="com.iu.s3.board.qna.QnaDAO";
+	private final String NAMESPACE="com.iu.s3.board.qna.QnaDAO.";
 	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {

@@ -20,5 +20,5 @@ public class QnaService implements BoardService {
 		// TODO Auto-generated method stub
 		return qnaDAO.getList(pager);
 	}
-	
+
 }

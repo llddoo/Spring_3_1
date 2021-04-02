@@ -17,12 +17,12 @@ public class NoticeDAOTest extends MyAbstractTest {
 	@Autowired
 	private NoticeDAO noticeDAO;
 
-	//@Test
-	public void getListTest (Pager pager) throws Exception {
-		List<NoticeDTO> ar = noticeDAO.getList(pager);
-		assertNotEquals(0, ar.size());
-
-	}
+//	//@Test
+//	public void getListTest (Pager pager) throws Exception {
+//		List<NoticeDTO> ar = noticeDAO.getList(pager);
+//		assertNotEquals(0, ar.size());
+//
+//	}
 	@Test
 	public void setInsertTest() throws Exception {
 		for(int i=0;i<120;i++) {

@@ -15,8 +15,7 @@ public class NoticeService implements BoardService {
 	@Autowired
 	private NoticeDAO noticeDAO;
 	
-	
-	public int setInsert(NoticeDTO noticeDTO) throws Exception {
+	public int setInsert(NoticeDTO noticeDTO)throws Exception{
 		return noticeDAO.setInsert(noticeDTO);
 	}
 	
@@ -34,7 +33,7 @@ public class NoticeService implements BoardService {
 		
 		
 		//---------------------------------------
-		//1. totalCount 전체갯수
+		//1. totalCount
 		long totalCount=noticeDAO.getTotalCount(pager);
 		
 		//2. totalPage

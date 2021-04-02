@@ -1,7 +1,6 @@
 package com.iu.s3.board.notice;
 
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,15 +21,13 @@ public class NoticeController {
 	private NoticeService noticeService;
 	
 	@RequestMapping("noticeInsert")
-	public void setInsert() throws Exception{}
+	public void setInsert()throws Exception{}
 	
-	
-	@RequestMapping(value="noticeInsert", method=RequestMethod.POST)
-	public String setInsert(NoticeDTO noticeDTO, Model model) throws Exception {
+	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
+	public String setInsert(NoticeDTO noticeDTO, Model model)throws Exception{
 		int result = noticeService.setInsert(noticeDTO);
-	
-		String message = "등록 실패";
 		
+		String message="등록 실패";
 		
 		if(result>0) {
 			message="등록 성공";
@@ -41,7 +38,6 @@ public class NoticeController {
 		return "common/commonResult";
 	}
 	
-	
 	@RequestMapping("noticeList")
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -51,8 +47,8 @@ public class NoticeController {
 		
 		//List<NoticeDTO> ar = noticeService.getList(curPage);
 		mv.addObject("list", ar);
-		mv.addObject("board", "notice");
 		mv.setViewName("board/boardList");
+		mv.addObject("board", "notice");
 		mv.addObject("pager", pager);
 		return mv;
 	}
