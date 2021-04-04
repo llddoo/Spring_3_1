@@ -21,6 +21,29 @@ public class NoticeController {
 	@Autowired
 	private NoticeService noticeService;
 	
+	@RequestMapping("noticeUpdate")
+	public ModelAndView setUpdate() throws Exception {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("board", "notice");
+		mv.setViewName("board/boardUpdate");
+		return mv;
+	}
+	@RequestMapping(value = "noticeUpdate", method = RequestMethod.POST)
+	public String setUpdate(BoardDTO boardDTO, Model model) throws Exception {
+		int result = noticeService.setUpdate(boardDTO);
+		
+		String message= "수정 실패";
+		
+		if(result>0) {
+			message = "수정 성공";
+		}
+		model.addAttribute("msg", message);
+		model.addAttribute("path", "./boardUpdate");
+
+		return "common/commonResult";
+	}
+	
+	
 	
 	
 	@GetMapping("noticeDelete")

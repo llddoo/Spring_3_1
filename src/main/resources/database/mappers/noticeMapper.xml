@@ -6,6 +6,10 @@
 <mapper namespace="com.iu.s3.board.notice.NoticeDAO">
 
 
+	<update id="getUpdate" parameterType="BoardDTO">
+		update notice set num=#{num}, title=#{title}, writer=#{writer}, contents=#{contents}
+	</update>
+
 
 	<select id="getSelect" parameterType="BoardDTO" resultType="noticeDTO">
 		select * from notice where num = #{num}

@@ -10,6 +10,15 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+	<h1>Notice Update Form</h1>
+	
+	<form action="./noticeUpdate" method="post">
+		<input type= "hidden" name="num" value="${dto.num}">
+		Title <input type="text" name="title" value="${dto.title}"><br>
+		Writer <input type="text" name="writer" value="${dto.writer}"><br>
+		Contents <input type="text" name="contents" value="${dto.contents}"><br>
+		<button>Update</button>
+	</form>
 
 
 
