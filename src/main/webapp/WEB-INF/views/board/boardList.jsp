@@ -12,7 +12,7 @@
 <c:import url="../template/header.jsp"></c:import>
 <div class="container">
 		<div>
-			<img alt="" src="../images/iu1.jpeg">
+			<img alt="" src="../images/iu1.jpg">
 		</div>
 	
 			<h2>${board} List</h2>
@@ -32,7 +32,13 @@
 			<c:forEach items="${list}" var="dto" >
 				<tr>
 					<td>${dto.num}</td>
-					<td><a href="./${board}Select?num=${dto.num}">${dto.title}</a></td>
+					<td><a href="./${board}Select?num=${dto.num}">
+					
+					<c:catch>
+					<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
+					</c:catch>
+					${dto.title}
+					</a></td>
 					<td>${dto.writer}</td>
 					<td>${dto.regDate}</td>
 					<td>${dto.hit}</td>
@@ -42,7 +48,7 @@
 		
 		</table>
 	</div>
-	<%-- 
+	
 	<div class="container">
 	  <ul class="pagination">
 	  
@@ -61,7 +67,7 @@
 	  </ul>
 	  
 	<div class="input-group mt-3 mb-3">
-	<form action="./noticeList" class="form-inline">
+	<form action="./${board}List" class="form-inline">
 	  <div class="input-group-prepend">
 	   <select class="form-control" name="kind" id="sel1">
 	    <option>Title</option>
@@ -74,7 +80,7 @@
 	    <button class="btn btn-success" type="submit">Search</button>
 	  </div>
 	 </form> 
-	</div> --%>
+	</div> 
   
   <a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
   

@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.iu.s3.MyAbstractTest;
 import com.iu.s3.board.notice.NoticeDAO;
 import com.iu.s3.board.notice.NoticeDTO;
-import com.iu.s3.util.Pager;
+import com.iu.s3.util.Pager_backup;
 
 public class NoticeDAOTest extends MyAbstractTest {
 

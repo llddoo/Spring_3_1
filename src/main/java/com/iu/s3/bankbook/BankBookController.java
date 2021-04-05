@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.iu.s3.util.Pager;
+import com.iu.s3.util.Pager_backup;
 
 @Controller
 @RequestMapping(value = "/bankbook/**")
@@ -43,7 +43,7 @@ public class BankBookController {
 	}
 	
 	@RequestMapping("bankbookList") //url이 하나 다 하면 이렇게 경로 지정해도됨 더있으면 사용안됨
-	public void getList(Pager pager) throws Exception {
+	public void getList(Pager_backup pager) throws Exception {
 		
 		
 		
