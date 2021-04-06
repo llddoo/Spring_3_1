@@ -18,30 +18,39 @@
 	
 	<c:import url="./template/header.jsp"></c:import>
 	
-<button onclick="go()">BUTTON</button>
+<button class="b">BUTTON</button>
 <button id="btn">CLICK</button>
 <button id="btn2">CLICK2</button>
+<h1 id="t">version 3</h1>
+<ol id="result">
+	<li>A</li>
+</ol>
 
-<h1>version 3</h1>
+<select id="mon">
+
+</select>
 
 <script type="text/javascript">
-	let btn = document.getElementById("btn");
-	let btn2 = document.getElementById("btn2");
-	
-	btn2.addEventListener("click", function() {
-		alert("btn2");
-		go();
+	$("#btn2").click(function(){
+		$("#result").prepend('<li>GO</li>');
 	});
-	
+
+	$("#btn").click(function(){
+		for(let i=1;i<13;i++){
+			$("#mon").append("<option>"+i+"</option>");
+		}
+		
+	});
+
 	//btn.onclick=go; //함수 바깥에서는 누르지않아도 바로 실행되서 이벤트 쓸거면 가로 안쓰고 저렇게 입력
-	btn.onclick = function() {
+/*	btn.onclick = function() {
 		alert("익명함수");
 		go();
 	}
 	
 	function go(){
 		alert("hello");
-	}
+	}*/
 </script>
 
 </body>
