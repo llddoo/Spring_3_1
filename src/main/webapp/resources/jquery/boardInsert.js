@@ -29,6 +29,6 @@ $("#btn").click(function(){
 $("#add").click(function(){
 	
 	//for(let i=1;i<6;i++)
-	$("#files").prepend("#sample");
+	$("#files").prepend('');
 });
 
