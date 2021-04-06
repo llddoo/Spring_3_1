@@ -39,7 +39,7 @@ public class NoticeService implements BoardService {
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return noticeDAO.setUpdate(boardDTO);
 	}
 
 
@@ -47,7 +47,7 @@ public class NoticeService implements BoardService {
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		return noticeDAO.setDelete(boardDTO);
 	}
 
 

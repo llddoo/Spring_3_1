@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,60 +16,78 @@ import com.iu.s3.board.BoardDTO;
 import com.iu.s3.util.Pager;
 
 @Controller
-@RequestMapping("/notice/**") // **표시는 root 밑에 리소시스 밑에 어떠한 파일명을 다 포함시키겟다
+@RequestMapping("/notice/**")
 public class NoticeController {
 	
 	@Autowired
 	private NoticeService noticeService;
 	
-	@RequestMapping("noticeUpdate")
-	public ModelAndView setUpdate() throws Exception {
+	@PostMapping
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv) throws Exception{
+		
+		int result = noticeService.setUpdate(boardDTO);
+		
+		if(result>0) {
+			//성공하면 리스트로 이동
+			mv.setViewName("redirect:./noticeList");
+		}else {
+			//실패하면 수정실패 , 리스트로 이동
+			mv.addObject("msg", "수정 실패");
+			mv.addObject("path", "./noticeList");
+			mv.setViewName("common/commonResult");
+		}
+		
+		return mv;
+	}
+	
+	
+	@GetMapping
+	public ModelAndView setUpdate(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		boardDTO = noticeService.getSelect(boardDTO);
+		
+		mv.addObject("dto", boardDTO);
 		mv.addObject("board", "notice");
 		mv.setViewName("board/boardUpdate");
 		return mv;
 	}
-	@RequestMapping(value = "noticeUpdate", method = RequestMethod.POST)
-	public String setUpdate(BoardDTO boardDTO, Model model) throws Exception {
-		int result = noticeService.setUpdate(boardDTO);
+	
+	@PostMapping("noticeDelete")
+	public ModelAndView setDelete(BoardDTO boardDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setDelete(boardDTO);
 		
-		String message= "수정 실패";
+		String message="삭제 실패";
+		String path = "./noticeList";
 		
 		if(result>0) {
-			message = "수정 성공";
+			message="삭제 성공";
 		}
-		model.addAttribute("msg", message);
-		model.addAttribute("path", "./boardUpdate");
-
-		return "common/commonResult";
-	}
-	
-	
-	
-	
-	@GetMapping("noticeDelete")
-	public ModelAndView setDelete() throws Exception {
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("board", "notice");
-		mv.setViewName("board/boardDelete");
+		
+		mv.addObject("msg", message);
+		mv.addObject("path", path);
+		
+		mv.setViewName("common/commonResult");
+		
 		return mv;
 	}
 	
 	@GetMapping("noticeSelect")
-	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception {
+	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		boardDTO = noticeService.getSelect(boardDTO);
 		mv.addObject("dto", boardDTO);
 		mv.addObject("board", "notice");
 		mv.setViewName("board/boardSelect");
-		return mv;	
+		
+		return mv;
 	}
 	
 	@RequestMapping("noticeInsert")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
-		mv.addObject("board", "notice");
 		mv.setViewName("board/boardInsert");
+		mv.addObject("board", "notice");
 		return mv;
 	}
 	

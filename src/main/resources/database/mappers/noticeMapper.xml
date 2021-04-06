@@ -6,8 +6,8 @@
 <mapper namespace="com.iu.s3.board.notice.NoticeDAO">
 
 
-	<update id="getUpdate" parameterType="BoardDTO">
-		update notice set num=#{num}, title=#{title}, writer=#{writer}, contents=#{contents}
+	<update id="setUpdate" parameterType="BoardDTO">
+		update notice set title=#{title}, contents=#{contents} where num=#{num}
 	</update>
 
 
