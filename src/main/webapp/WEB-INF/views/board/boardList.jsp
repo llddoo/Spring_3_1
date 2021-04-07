@@ -87,10 +87,10 @@
 		<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
 		
 		<script type="text/javascript">
-			let kind = '${pager.kind}';
+			let kind = '${pager.kind}';//Title, Writer, Contents
 		
 			$(".sel").each(function() {
-				let t = $(this).text();
+				let t = $(this).text();//Title, Writer, Contents
 				if (t == kind) {
 					$(this).prop("selected", true);
 				}

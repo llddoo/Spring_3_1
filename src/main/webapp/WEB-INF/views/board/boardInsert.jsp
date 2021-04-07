@@ -9,7 +9,7 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 <style type="text/css">
 	#sample{
-		display:none;
+		/*display:none;*/
 	}
 </style>
 </head>
@@ -33,6 +33,7 @@
       <textarea class="form-control myCheck" rows="5" id="contents" name="contents"></textarea>
     </div>
     <input type="button" id="add" value="ADD" class="btn btn-danger">
+    <input type="button" id="del" value="DELETE" class="btn btn-info">
     <div id="files">
     
     
@@ -42,11 +43,22 @@
   </form>
 </div>
 <div id="sample">
-<div class="form-group">
-      <input type="file" class="form-control-file border" name="file">
-    </div>
+<div class="input-group">
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
+    <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
+  </div>
+  <div class="input-group-append delete">
+    <input class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" value="Delete"></button>
+  </div>
 </div>
 
+
+</div>
+
+
+
 <script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
+<script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
 </body>
 </html>
