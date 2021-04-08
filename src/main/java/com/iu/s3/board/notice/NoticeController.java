@@ -16,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.iu.s3.board.BoardDTO;
 import com.iu.s3.util.Pager;
 
+
 @Controller
 @RequestMapping("/notice/**")
 public class NoticeController {
@@ -94,9 +95,10 @@ public class NoticeController {
 	
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
 	public String setInsert(BoardDTO boardDTO, Model model, MultipartFile [] files)throws Exception{
-	
+		
 		int result = noticeService.setInsert(boardDTO, files);
-	
+		
+		
 		String message="등록 실패";
 		
 		if(result>0) {

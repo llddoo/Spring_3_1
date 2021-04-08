@@ -21,13 +21,14 @@ public class NoticeService implements BoardService {
 	
 	@Autowired
 	private NoticeDAO noticeDAO;
+	
 	@Autowired
 	private FileManager fileManager;
+	
 	@Autowired
 	private HttpSession session;
 	
-
-
+	
 	
 	
 	@Override
@@ -41,7 +42,7 @@ public class NoticeService implements BoardService {
 	@Override
 	public int setInsert(BoardDTO boardDTO, MultipartFile [] files) throws Exception {
 		
-		long num = noticeDAO.getNum();
+		long num =noticeDAO.getNum();
 		
 		boardDTO.setNum(num);
 		
@@ -51,7 +52,7 @@ public class NoticeService implements BoardService {
 		
 		for(MultipartFile mf : files) {
 			BoardFileDTO boardFileDTO = new BoardFileDTO();
-			String fileName = fileManager.save("notice", mf, session);
+			String fileName= fileManager.save("notice", mf, session);
 			
 			boardFileDTO.setNum(num);
 			boardFileDTO.setFileName(fileName);
