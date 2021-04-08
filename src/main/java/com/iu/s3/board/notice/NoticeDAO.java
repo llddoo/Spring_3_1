@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 import com.iu.s3.board.BoardDAO;
 import com.iu.s3.board.BoardDTO;
+import com.iu.s3.board.BoardFileDTO;
 import com.iu.s3.util.Pager;
+
 
 @Repository
 public class NoticeDAO implements BoardDAO {
@@ -34,20 +36,27 @@ public class NoticeDAO implements BoardDAO {
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		boardDTO = sqlSession.selectOne(NAMESPACE+"getSelect", boardDTO);
-		return boardDTO;
+		return sqlSession.selectOne(NAMESPACE+"getSelect", boardDTO);
 	}
 
 	@Override
 	public int setHitUpdate(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
-		return sqlSession.update(NAMESPACE+"setHitUpdate", boardDTO);
+		return 0;
 	}
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
+	}
+	
+	public long getNum()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getNum");
+	}
+	
+	public int setFileInsert(BoardFileDTO boardFileDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setFileInsert", boardFileDTO);
 	}
 
 	@Override
@@ -63,5 +72,5 @@ public class NoticeDAO implements BoardDAO {
 	}
 	
 	
-
+	
 }

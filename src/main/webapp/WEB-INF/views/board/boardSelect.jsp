@@ -16,15 +16,20 @@
 	<h3>Title : ${dto.title}</h3>
 	<h3>Writer : ${dto.writer}</h3>
 	<h3>Contents : ${dto.contents}</h3>
-	
+	<div>
+	<c:forEach items="${dto.boardFiles}" var="file">
+		<a href="../resources/upload/${board}/${file.fileName}">${file.origineName}</a>
+	</c:forEach>
+	</div>
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
-	<a href="#" id=del class="btn btn-info">Delete</a>
+	<a href="#" id="del" class="btn btn-info">Delete</a>
+	
 	
 	<c:if test="${board ne 'notice'}">
 	<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary">Reply</a>
 	</c:if>
 	
-	<form action="./${board}Delete" id="frm" method="get"> 
+	<form action="./${board}Delete" id="frm" method="get">
 		<input type="hidden" name="num" value="${dto.num}">
 	</form>
 	
@@ -37,14 +42,13 @@
 	del.addEventListener("click", function(){
 		let result = confirm("Delete??");
 		
-		if(result) {
-			//frm.method-"post";
+		if(result){
+			//frm.method="post";
 			frm.setAttribute("method", "post");
 			frm.submit();
-		//location.href="./${board}Delete?num=${dto.num}";
+			//location.href="./${board}Delete?num=${dto.num}";
 		}
 	});
-	
 </script>
 
 </body>
