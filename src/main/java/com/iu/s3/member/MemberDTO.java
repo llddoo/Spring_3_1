@@ -15,6 +15,7 @@ public class MemberDTO {
 	private MemberFileDTO memberFileDTO;
 	
 	
+	
 	public MemberFileDTO getMemberFileDTO() {
 		return memberFileDTO;
 	}
