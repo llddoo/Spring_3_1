@@ -20,7 +20,7 @@ public class HomeController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
-	@GetMapping("/test")
+	@GetMapping("/test")//dd
 	public void test(int num, Model model) {
 		System.out.println(num);
 		model.addAttribute("str", "Ajax");
