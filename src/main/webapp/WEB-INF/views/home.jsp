@@ -49,8 +49,19 @@
 	<div id="d2"></div>
 </div>
 
-
 <script type="text/javascript">
+	$("#btn2").click(function(){
+		$.get("./test?num=3", function(data){
+			console.log(data);
+			$("#d2").html(data);
+		});
+	});
+</script>
+
+
+
+
+<!--<script type="text/javascript">
 	$("#btn2").click(function() {
 		$("#result").prepend('<li>GO</li>');
 	});
@@ -73,7 +84,7 @@
 	
 	
 </script>
-
+-->
 
 
 
