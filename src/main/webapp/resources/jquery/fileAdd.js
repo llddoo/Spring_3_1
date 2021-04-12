@@ -3,6 +3,7 @@
  */
 
 let count = $("#files").attr("title");
+alert(count);
 
 $("#add").click(function(){
 	if(count < 5){
@@ -12,10 +13,6 @@ $("#add").click(function(){
 	}else {
 		alert("최대 5개만 가능");
 	}
-});
-
-$("#del").click(function(){
-	$("#files").empty();
 });
 
 //이벤트 전달(위임)
