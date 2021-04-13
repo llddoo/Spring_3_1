@@ -3,7 +3,6 @@
  */
 
 $("#btn").click(function(){
-	alert("잉");
 	/*let writer = $("#writer").val() != "";
 	let title = $("#title").val().length != 0;
 	let contents = $("#contents").val().length != 0;*/ //id로 가져올때 쓰는것
@@ -26,9 +25,9 @@ $("#btn").click(function(){
 	
 });
 
-$("#add").click(function(){
+/* $("#add").click(function(){
 	
 	//for(let i=1;i<6;i++)
 	$("#files").prepend('');
 });
-
+*/
