@@ -9,107 +9,127 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<c:import url="./template/bootStrap.jsp"></c:import>
 
+<c:import url="./template/bootStrap.jsp"></c:import>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e82ee4c5e0891511187124e83dd83282"></script>
 <link rel="stylesheet" href="./resources/css/test.css">
 <title>Home</title>
 <style type="text/css">
-#d1 {
-	width: 200px;
-	height: 200px;
-	background-color: red;
-	overflow: hidden;
-}
-
-#d2 {
-	width: 50px;
-	height: 50px;
-	background-color: yellow;
-	margin: 75px auto;
-}
-</style>
-</head>
-<body>
-
-	<c:import url="./template/header.jsp"></c:import>
-
-	<button class="b">BUTTON</button>
-	<button id="btn" class="b">CLICK</button>
-	<button id="btn2" class="b">CLICK2</button>
-	<h1 id="t">version 3</h1>
-	<ol id="result">
-		<li>A</li>
-	</ol>
-
-	<select id="mon">
-
-	</select>
-
-	<div id="d1">
-		<div id="d2"></div>
-	</div>
-
-	<div id="map" style="width: 500px; height: 400px;"></div>
-	
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bf3707c3d8a43f532d54bbf4954d9424"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center: new kakao.maps.LatLng(33.450701, 126.570667),
-			level: 3
-		};
-
-		var map = new kakao.maps.Map(container, options);
-	</script>
-	
-
-	<script type="text/javascript">
-		$("#btn2").click(function() {
-			$.get("./test?num=3", function(data) {
-				console.log(data);
-				$("#d2").html(data);
-			});
-		});
-	</script>
-
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=APIKEY&libraries=LIBRARY"></script>
-
-
-	<!--<script type="text/javascript">
-	$("#btn2").click(function() {
-		$("#result").prepend('<li>GO</li>');
-	});
-	
-	
-		
-	for(let i=1;i<13;i++){
-		$("#mon").append("<option>"+i+"</option>");
+	#d1 {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+		overflow: hidden;
 	}
 	
-	$("#d1").click(function(){
-		console.log("parent");
+	#d2 {
+		width: 50px;
+		height: 50px;
+		background-color: yellow;
+		margin: 75px auto;
+	}
+</style>
+
+</head>
+<body>
+	
+<c:import url="./template/header.jsp"></c:import>
+
+<button class="b" id="btn1">BUTTON</button>
+<button id="btn" class="b">CLICK</button>
+<button id="btn2" class="b">CLICK2</button>
+<input type="text" id="num">
+<h1 id="t">version 3</h1>
+<ol id="result">
+	<li>A</li>
+</ol>
+	
+<select id="mon">
+	
+</select>	
+
+<div id="d1">
+	<div id="d2">
+		<h3 id="d3"></h3>
+		<h3 id="d4"></h3>
+	</div>
+</div>
+
+<div id="exchange">
+	<h3 id="krw"></h3>
+	<h3 id="usd"></h3>
+</div>
+
+<div id="map" style="width:500px;height:400px;"></div>
+
+
+<script type="text/javascript">
+	
+	getMap(33.450701, 126.570667);
+	
+	function getMap(lat, lng) {
+		var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+		var options = { //지도를 생성할 때 필요한 기본 옵션
+			center: new kakao.maps.LatLng(lat, lng), //지도의 중심좌표.
+			level: 3 //지도의 레벨(확대, 축소 정도)
+		};
+		var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+	}
+	
+	
+	
+	$("#btn1").click(function() {
+		$.get("https://jsonplaceholder.typicode.com/users", function(data) {
+			console.log(data);
+			
+			for(index of data){
+				console.log(index.company.name);
+			}
+			
+			//첫번째 유저의 내용 중
+			console.log(data[0].address.geo.lat);
+			console.log(data[0].address.geo.lng);
+			let t = parseFloat(data[0].address.geo.lat);
+			let n = parseFloat(data[0].address.geo.lng);
+			getMap(33.333322, 125.242141);
+		});
 	});
 	
-	$("#d2").click(function() {
-		console.log("child");
+	$("#btn").click(function() {
+		$.ajax({
+			type: "GET",
+			url : "https://api.manana.kr/exchange/price.json",
+			data: {
+				base: "KRW",
+				price: 1500, 
+				code:"KRW,USD,JPY"
+			},
+			success:function(data){
+				console.log(data);
+				$("#krw").html(data.KRW);
+				$("#usd").html(data.USD);
+			}
+		});
 	});
+	
+	
+	$("#btn2").click(function() {
+		let num = $("#num").val();
 		
+		$.get("https://jsonplaceholder.typicode.com/posts/"+num, function(data) {
+			
+			console.log(data);
+			$("#d3").html(data.title);
+			$("#d4").html(data.body);
 		
+		});
+	});	
 	
 	
 </script>
--->
+
 
 
 
 </body>
 </html>
-<!--  //btn.onclick=go; //함수 바깥에서는 누르지않아도 바로 실행되서 이벤트 쓸거면 가로 안쓰고 저렇게 입력
-/*	btn.onclick = function() {
-		alert("익명함수");
-		go();
-	}
-	
-	function go(){
-		alert("hello");
-	}*/-->
